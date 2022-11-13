@@ -1,27 +1,52 @@
 package com.example.sundevilpizza;
 
-import static java.lang.System.out;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 import java.io.*;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Filesystem {
 
-    JSONParser jsonParser = new JSONParser();
+    private final String upcomingOrdersDir = System.getProperty("user.dir") + "/data/orders/upcomingOrders/";
+    private final String currentOrderDir = System.getProperty("user.dir") + "/data/orders/currentOrder/";
+    private final String finishedOrdersDir = System.getProperty("user.dir") + "/data/orders/finishedOrders/";
+    // takes in a formatted string of order data and writes to a file
+    public void writeToFile(String str) throws IOException {
 
-    FileReader reader = new FileReader(".\\src\\main\\java\\com.example.sundevilpizza\\test.json");
+        BufferedWriter writer = new BufferedWriter(new FileWriter(currentOrderDir + "/" + "output.txt"));
+        writer.write(str);
+        writer.close();
+    }
 
-    Object obj = jsonParser.parse(reader);
-    JSONObject empjsonobj = (JSONObject)obj;
+    // takes in a file path and returns an array of order data
+    public HashMap<String, String> readFromFile(String str) throws IOException {
 
-    String fname = (String)empjsonobj.get("title");
-//    System.out.print("First name:" + fname);
+        // hashmap to return
+        HashMap<String, String> orderInfoMap = new HashMap<String, String>();
+        BufferedReader reader = new BufferedReader(new FileReader(currentOrderDir + "/" + "output.txt"));
+        String order = reader.readLine();
+        reader.close();
 
-    public Filesystem() throws IOException, ParseException {
+        String delims = ",";
+        String[] tokens = order.split(delims);
+        // populate OrderInfoMap
+        orderInfoMap.put("OrderID", tokens[0]);
+        orderInfoMap.put("Name", tokens[1]);
+        orderInfoMap.put("Total", tokens[2]);
+        orderInfoMap.put("Type", tokens[3]);
+        orderInfoMap.put("Toppings", tokens[4]);
+
+        System.out.println("Iterating Hashmap...");
+        for (Map.Entry<String, String> set : orderInfoMap.entrySet()) {
+            System.out.println(set.getKey() + " " + set.getValue());
+        }
+
+        return orderInfoMap;
+    }
+
+    public File getLatestOrder() {
+        File folder = new File(upcomingOrdersDir);
+        File[] listOfFiles = folder.listFiles();
+        assert listOfFiles != null;
+        return listOfFiles[listOfFiles.length-1];
     }
 }

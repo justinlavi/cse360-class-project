@@ -1,5 +1,7 @@
 package com.example.sundevilpizza;
 
+import com.example.sundevilpizza.Filesystem;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Node;
+
+import java.io.File;
 import java.io.IOException;
 
 public class SceneController {
@@ -37,6 +41,10 @@ public class SceneController {
 
             
         } else if (tfLoginPrompt.getText().equals("customer")) {
+			Filesystem file = new Filesystem();
+			String order = "001,John,25.15,Pepperoni,Mushroom";
+			file.writeToFile(order);
+			file.readFromFile("output.txt");
         	// use filesystem to read from valid ASURITE ids
         	loadScene(event, "Customer.fxml");
         }  else if (tfLoginPrompt.getText().equals("agent")) {
