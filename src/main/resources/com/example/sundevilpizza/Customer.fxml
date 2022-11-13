@@ -99,7 +99,7 @@
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a42714" height="247.0" layoutX="409.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="179.0" />
-      <TextArea layoutX="416.0" layoutY="83.0" prefHeight="234.0" prefWidth="166.0" />
+      <TextArea editable="false" layoutX="416.0" layoutY="83.0" prefHeight="234.0" prefWidth="166.0" />
       <Polygon fill="#a42714" layoutX="550.0" layoutY="24.0" points="-273.0, 46.0, 50.0, 46.0, 50.0, -219.0" stroke="BLACK" strokeType="INSIDE" />
       <Label layoutX="454.0" layoutY="2.0" prefHeight="17.0" prefWidth="146.0" text="Customer Page" textFill="#fbff00">
          <font>
