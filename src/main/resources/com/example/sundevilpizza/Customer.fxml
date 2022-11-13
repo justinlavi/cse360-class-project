@@ -4,36 +4,132 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sundevilpizza.SceneController">
    <children>
-      <Label layoutX="25.0" layoutY="18.0" text="Customer Page">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Button layoutX="490.0" layoutY="14.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" text="Logout">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <VBox layoutX="60.0" layoutY="120.0" prefHeight="200.0" prefWidth="100.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="408.0" layoutX="-1.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5f56" height="70.0" layoutY="332.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5f56" height="70.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <VBox layoutX="18.0" layoutY="125.0" prefHeight="168.0" prefWidth="89.0">
          <children>
-            <RadioButton mnemonicParsing="false" text="Pepperoni">
+            <RadioButton mnemonicParsing="false" prefHeight="48.0" prefWidth="89.0" text="Pepperoni">
                <toggleGroup>
                   <ToggleGroup fx:id="pizzaType" />
                </toggleGroup>
+               <effect>
+                  <ColorAdjust />
+               </effect>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Veggie" toggleGroup="$pizzaType" />
-            <RadioButton mnemonicParsing="false" text="Cheese" toggleGroup="$pizzaType" />
+            <RadioButton mnemonicParsing="false" prefHeight="51.0" prefWidth="89.0" text="Veggie" toggleGroup="$pizzaType">
+               <effect>
+                  <ColorAdjust />
+               </effect></RadioButton>
+            <RadioButton mnemonicParsing="false" prefHeight="53.0" prefWidth="89.0" text="Cheese" toggleGroup="$pizzaType">
+               <effect>
+                  <ColorAdjust />
+               </effect></RadioButton>
          </children>
       </VBox>
-      <CheckBox layoutX="237.0" layoutY="120.0" mnemonicParsing="false" text="Extra Cheese" />
-      <CheckBox layoutX="237.0" layoutY="145.0" mnemonicParsing="false" text="CheckBox" />
-      <CheckBox layoutX="237.0" layoutY="173.0" mnemonicParsing="false" text="CheckBox" />
+      <CheckBox layoutX="233.0" layoutY="142.0" mnemonicParsing="false" text="Extra Cheese">
+         <effect>
+            <ColorAdjust />
+         </effect>
+      </CheckBox>
+      <CheckBox layoutX="233.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Bacon">
+         <effect>
+            <ColorAdjust />
+         </effect>
+      </CheckBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f800" height="57.0" layoutX="8.0" layoutY="340.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
+      <CheckBox layoutX="233.0" layoutY="244.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Mushroom">
+         <effect>
+            <ColorAdjust />
+         </effect>
+      </CheckBox>
+      <ImageView fitHeight="44.0" fitWidth="57.0" layoutX="107.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pepperoniPizza.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="81.0" layoutX="107.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@veggiePizza.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f800" height="57.0" layoutX="473.0" layoutY="340.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
+      <Button layoutX="13.0" layoutY="346.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="45.0" prefWidth="105.0" text="Logout">
+         <font>
+            <Font name="Lato Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="479.0" layoutY="346.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Submit ">
+         <font>
+            <Font name="Lato Bold" size="20.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a42714" height="57.0" layoutX="149.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="301.0" />
+      <TextArea layoutX="155.0" layoutY="346.0" prefHeight="45.0" prefWidth="288.0">
+         <font>
+            <Font name="Lato Bold" size="16.0" />
+         </font>
+      </TextArea>
+      <ImageView fitHeight="45.0" fitWidth="81.0" layoutX="107.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cheesePizza.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="24.0" layoutY="82.0" prefHeight="43.0" prefWidth="166.0" text="Pizza Type" underline="true">
+         <font>
+            <Font name="Lato Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="243.0" layoutY="82.0" prefHeight="43.0" prefWidth="146.0" text="Toppings" underline="true">
+         <font>
+            <Font name="Lato Bold" size="30.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a42714" height="247.0" layoutX="409.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="179.0" />
+      <TextArea layoutX="416.0" layoutY="83.0" prefHeight="234.0" prefWidth="166.0" />
+      <Polygon fill="#a42714" layoutX="550.0" layoutY="24.0" points="-273.0, 46.0, 50.0, 46.0, 50.0, -219.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="454.0" layoutY="2.0" prefHeight="17.0" prefWidth="146.0" text="Customer Page" textFill="#fbff00">
+         <font>
+            <Font name="Lato Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="462.0" layoutY="60.0" prefHeight="87.0" prefWidth="74.0" text="Total" underline="true">
+         <font>
+            <Font name="Lato Bold" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="45.0" fitWidth="57.0" layoutX="334.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@baconIcon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="57.0" layoutX="334.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true" rotate="17.4">
+         <image>
+            <Image url="@mushroomIcon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="57.0" layoutX="334.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cheeseIcon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="70.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ASU-logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
