@@ -1,4 +1,6 @@
-data/orders/*
+data/orders/currentOrder/*
+data/orders/finishedOrders/*
+data/orders/upcomingOrders/*
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
