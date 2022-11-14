@@ -80,5 +80,6 @@
       <Label layoutX="191.0" layoutY="229.0" text="Pizza:" />
       <Label layoutX="191.0" layoutY="264.0" text="Toppings:" />
       <TextArea fx:id="lblPizzaToppings" editable="false" layoutX="270.0" layoutY="258.0" prefHeight="48.0" prefWidth="150.0" />
+      <Button layoutX="123.0" layoutY="7.0" mnemonicParsing="false" onAction="#onRefreshButtonClick" opacity="0.0" prefHeight="48.0" prefWidth="45.0" />
    </children>
 </AnchorPane>
