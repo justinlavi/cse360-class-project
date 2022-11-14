@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.HashMap;
 
 public class AgentController {
@@ -27,9 +28,22 @@ public class AgentController {
 
         OrderStatusController status = new OrderStatusController();
         try {
-            HashMap<String, String> orderStatus = status.getOrderStatus();
+            HashMap<String, String> orderStatus = status.getOrderDetails();
             lblOrderID.setText(orderStatus.get("OrderID"));
-            lblOrderStatus.setText(orderStatus.get("Status"));
+            lblOrderStatus.setText(status.getOrderStatus());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    private void onAcceptedButtonClick(ActionEvent event) throws IOException {
+
+        OrderStatusController status = new OrderStatusController();
+        try {
+            HashMap<String, String> orderStatus = status.getOrderDetails();
+            orderStatus.replace("Status", "Accepted");
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

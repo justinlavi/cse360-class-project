@@ -14,11 +14,20 @@ public class OrderStatusController {
     private Label lblOrderStatus;
 
     HashMap<String, String> currentOrder;
+    private String orderStatus;
 
-    public HashMap<String, String> getOrderStatus() throws IOException {
+    public HashMap<String, String> getOrderDetails() throws IOException {
         Filesystem filesystem = new Filesystem();
         currentOrder = filesystem.readFromFile(filesystem.currentOrderDir + "/" + "output.txt");
         return currentOrder;
     }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+    public void setOrderStatus(String str) {
+        orderStatus = str;
+    }
+
 
 }

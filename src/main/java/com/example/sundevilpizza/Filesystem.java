@@ -36,7 +36,6 @@ public class Filesystem {
         orderInfoMap.put("Total", tokens[2]);
         orderInfoMap.put("Type", tokens[3]);
         orderInfoMap.put("Toppings", tokens[4]);
-        orderInfoMap.put("Status", tokens[5]);
 
         System.out.println("Iterating Hashmap...");
         for (Map.Entry<String, String> set : orderInfoMap.entrySet()) {

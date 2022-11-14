@@ -37,13 +37,13 @@
          </font>
       </TextArea>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f800" height="57.0" layoutX="15.0" layoutY="337.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
-      <Button layoutX="20.0" layoutY="343.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="45.0" prefWidth="105.0" text="Logout">
+      <Button layoutX="20.0" layoutY="343.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Logout">
          <font>
             <Font name="Lato Bold" size="20.0" />
          </font>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f800" height="57.0" layoutX="438.0" layoutY="337.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
-      <Button layoutX="443.0" layoutY="343.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="45.0" prefWidth="150.0" text="Accept Order">
+      <Button layoutX="443.0" layoutY="343.0" mnemonicParsing="false" onAction="#onAcceptedButtonClick" prefHeight="45.0" prefWidth="150.0" text="Accept Order">
          <font>
             <Font name="Lato Bold" size="20.0" />
          </font>

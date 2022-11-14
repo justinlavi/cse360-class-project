@@ -48,7 +48,6 @@ public class CustomerController {
 	private double orderTotal;
 	private String pizzaType;
 	private String pizzaToppings;
-	private String orderStatus;
 
 	@FXML
 	public void calculateTotal() {
@@ -90,7 +89,7 @@ public class CustomerController {
 
 		OrderStatusController status = new OrderStatusController();
 		try {
-			HashMap<String, String> orderStatus = status.getOrderStatus();
+			HashMap<String, String> orderStatus = status.getOrderDetails();
 			lblOrderID.setText(orderStatus.get("OrderID"));
 			lblOrderStatus.setText(orderStatus.get("Status"));
 		} catch (IOException e) {
@@ -105,7 +104,6 @@ public class CustomerController {
 		customerID = "";
 		pizzaType = "";
 		pizzaToppings = "";
-		orderStatus = "Submitted";
 		calculateTotal();
 		String orderIDStr = Integer.toString(orderID);
 		String order = "";
@@ -113,8 +111,7 @@ public class CustomerController {
 				customerID + "," +
 				orderTotal + "," +
 				pizzaType + "," +
-				pizzaToppings + "," +
-				orderStatus;
+				pizzaToppings;
 
 		// write order to file
 		Filesystem filesystem = new Filesystem();
