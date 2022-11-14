@@ -10,18 +10,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ChefController extends Filesystem {
+public class ChefController {
     private Stage stage;
     private Scene scene;
 
     @FXML
     private void onCookingButtonClick(ActionEvent event) {
-
+        OrderStatusController.setOrderStatus("Cooking");
     }
 
     @FXML
     private void OnReadyButtonClick(ActionEvent event) {
-
+        OrderStatusController.setOrderStatus("Ready");
     }
 
     public void onLogoutButtonClick(ActionEvent event) throws IOException {
