@@ -31,13 +31,13 @@
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5f56" height="70.0" layoutY="330.0" stroke="BLACK" strokeType="INSIDE" width="607.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a42714" height="57.0" layoutX="140.0" layoutY="337.0" stroke="BLACK" strokeType="INSIDE" width="291.0" />
-      <TextArea editable="false" layoutX="146.0" layoutY="342.0" prefHeight="48.0" prefWidth="278.0">
+      <TextArea editable="false" layoutX="149.0" layoutY="340.0" prefHeight="48.0" prefWidth="278.0">
          <font>
             <Font name="Lato Bold" size="16.0" />
          </font>
       </TextArea>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f800" height="57.0" layoutX="15.0" layoutY="337.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
-      <Button layoutX="20.0" layoutY="343.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Logout">
+      <Button layoutX="20.0" layoutY="343.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="45.0" prefWidth="105.0" text="Logout">
          <font>
             <Font name="Lato Bold" size="20.0" />
          </font>
@@ -74,5 +74,6 @@
       <Label fx:id="lblPizzaType" layoutX="234.0" layoutY="233.0" prefHeight="17.0" prefWidth="116.0" />
       <Label layoutX="184.0" layoutY="233.0" text="Pizza:" />
       <Label layoutX="184.0" layoutY="268.0" text="Toppings:" />
+      <TextArea fx:id="lblPizzaToppings" editable="false" layoutX="263.0" layoutY="262.0" prefHeight="48.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
