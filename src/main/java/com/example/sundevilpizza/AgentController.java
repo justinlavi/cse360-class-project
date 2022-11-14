@@ -1,20 +1,41 @@
 package com.example.sundevilpizza;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class AgentController {
 
     private Stage stage;
     private Scene scene;
 
+    @FXML
+    private Label lblOrderID;
+    @FXML
+    private Label lblOrderStatus;
 
+    @FXML
+    private void onRefreshButtonClick(ActionEvent event) throws IOException {
+
+        OrderStatusController status = new OrderStatusController();
+        try {
+            HashMap<String, String> orderStatus = status.getOrderStatus();
+            lblOrderID.setText(orderStatus.get("OrderID"));
+            lblOrderStatus.setText(orderStatus.get("Status"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     private void onLogoutButtonClick(ActionEvent event) throws IOException {
         loadScene(event, "Login.fxml");
     }

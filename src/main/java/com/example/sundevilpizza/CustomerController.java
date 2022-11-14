@@ -1,6 +1,10 @@
 package com.example.sundevilpizza;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,12 +38,17 @@ public class CustomerController {
 	private Label lblTotal;
 	@FXML
 	private Button btnOrder;
+	@FXML
+	private Label lblOrderID;
+	@FXML
+	private Label lblOrderStatus;
 
 	private int orderID;
 	private String customerID;
 	private double orderTotal;
 	private String pizzaType;
 	private String pizzaToppings;
+	private String orderStatus;
 
 	@FXML
 	public void calculateTotal() {
@@ -77,16 +86,35 @@ public class CustomerController {
 	}
 
 	@FXML
+	private void onRefreshButtonClick(ActionEvent event) throws IOException {
+
+		OrderStatusController status = new OrderStatusController();
+		try {
+			HashMap<String, String> orderStatus = status.getOrderStatus();
+			lblOrderID.setText(orderStatus.get("OrderID"));
+			lblOrderStatus.setText(orderStatus.get("Status"));
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@FXML
 	private void onOrderButtonClick(ActionEvent event) throws IOException {
 		// store order into string
 		orderID = 1;
-		customerID = "\n";
+		customerID = "";
 		pizzaType = "";
 		pizzaToppings = "";
+		orderStatus = "Submitted";
 		calculateTotal();
 		String orderIDStr = Integer.toString(orderID);
 		String order = "";
-		order = orderID + "," + customerID + "," + orderTotal + "," + pizzaType + "," + pizzaToppings;
+		order = orderID + "," +
+				customerID + "," +
+				orderTotal + "," +
+				pizzaType + "," +
+				pizzaToppings + "," +
+				orderStatus;
 
 		// write order to file
 		Filesystem filesystem = new Filesystem();

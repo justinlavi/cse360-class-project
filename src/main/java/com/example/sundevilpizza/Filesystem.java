@@ -6,10 +6,10 @@ import java.util.Map;
 
 public class Filesystem {
 
-    private final String ordersDir = System.getProperty("user.dir") + "/data/orders/";
-    private final String upcomingOrdersDir = System.getProperty("user.dir") + "/data/orders/upcomingOrders/";
-    private final String currentOrderDir = System.getProperty("user.dir") + "/data/orders/currentOrder";
-    private final String finishedOrdersDir = System.getProperty("user.dir") + "/data/orders/finishedOrders/";
+    public final String ordersDir = System.getProperty("user.dir") + "/data/orders/";
+    public final String upcomingOrdersDir = System.getProperty("user.dir") + "/data/orders/upcomingOrders/";
+    public final String currentOrderDir = System.getProperty("user.dir") + "/data/orders/currentOrder";
+    public final String finishedOrdersDir = System.getProperty("user.dir") + "/data/orders/finishedOrders/";
 
     // takes in a formatted string of order data and writes to a file
     public void writeToFile(String str) throws IOException {
@@ -36,6 +36,7 @@ public class Filesystem {
         orderInfoMap.put("Total", tokens[2]);
         orderInfoMap.put("Type", tokens[3]);
         orderInfoMap.put("Toppings", tokens[4]);
+        orderInfoMap.put("Status", tokens[5]);
 
         System.out.println("Iterating Hashmap...");
         for (Map.Entry<String, String> set : orderInfoMap.entrySet()) {

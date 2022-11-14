@@ -38,8 +38,6 @@ public class SceneController {
         	lblLoginStatus.setText("Login field is empty!");
         	lblLoginStatus.setStyle(errorMessage);
         	tfLoginPrompt.setStyle(errorStyle);
-
-            
         } else if (tfLoginPrompt.getText().equals("customer")) {
 
         	// use filesystem to read from valid ASURITE ids
