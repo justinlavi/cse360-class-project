@@ -19,6 +19,16 @@ public class AgentController {
     private Scene scene;
 
     @FXML
+    private Label lblOrderNumber;
+    @FXML
+    private Label lblAccountNumber;
+    @FXML
+    private Label lblOrderTotal;
+    @FXML
+    private Label lblPizzaType;
+    @FXML
+    private Label lblPizzaToppings;
+    @FXML
     private Label lblOrderID;
     @FXML
     private Label lblOrderStatus;
@@ -29,6 +39,11 @@ public class AgentController {
         OrderStatusController status = new OrderStatusController();
         try {
             HashMap<String, String> orderStatus = status.getOrderDetails();
+            lblOrderNumber.setText(orderStatus.get("OrderID"));
+            lblAccountNumber.setText(orderStatus.get("Account"));
+            lblOrderTotal.setText("$" + orderStatus.get("Total"));
+            lblPizzaType.setText(orderStatus.get("Type"));
+            lblPizzaToppings.setText(orderStatus.get("Toppings"));
             lblOrderID.setText(orderStatus.get("OrderID"));
             lblOrderStatus.setText(OrderStatusController.getOrderStatus());
         } catch (IOException e) {

@@ -65,7 +65,14 @@
       <Label layoutX="261.0" layoutY="354.0" prefHeight="25.0" prefWidth="36.0" text="Status:" />
       <Label fx:id="lblOrderID" layoutX="206.0" layoutY="354.0" prefHeight="25.0" prefWidth="45.0" />
       <Label fx:id="lblOrderStatus" layoutX="303.0" layoutY="354.0" prefHeight="25.0" prefWidth="105.0" />
-      <Label layoutX="184.0" layoutY="137.0" text="Order Number" />
-      <Label fx:id="lblOrderID" layoutX="237.0" layoutY="137.0" prefHeight="17.0" prefWidth="63.0" />
+      <Label layoutX="184.0" layoutY="137.0" text="Order Number:" />
+      <Label fx:id="lblOrderNumber" layoutX="272.0" layoutY="137.0" prefHeight="17.0" prefWidth="91.0" />
+      <Label layoutX="184.0" layoutY="167.0" text="Account:" />
+      <Label fx:id="lblAccountNumber" layoutX="251.0" layoutY="167.0" prefHeight="17.0" prefWidth="73.0" />
+      <Label layoutX="184.0" layoutY="200.0" text="Order Total:" />
+      <Label fx:id="lblOrderTotal" layoutX="258.0" layoutY="200.0" prefHeight="17.0" prefWidth="81.0" />
+      <Label fx:id="lblPizzaType" layoutX="234.0" layoutY="233.0" prefHeight="17.0" prefWidth="116.0" />
+      <Label layoutX="184.0" layoutY="233.0" text="Pizza:" />
+      <Label layoutX="184.0" layoutY="268.0" text="Toppings:" />
    </children>
 </AnchorPane>

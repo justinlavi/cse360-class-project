@@ -32,7 +32,7 @@ public class Filesystem {
         String[] tokens = order.split(delims);
         // populate OrderInfoMap
         orderInfoMap.put("OrderID", tokens[0]);
-        orderInfoMap.put("Name", tokens[1]);
+        orderInfoMap.put("Account", tokens[1]);
         orderInfoMap.put("Total", tokens[2]);
         orderInfoMap.put("Type", tokens[3]);
         orderInfoMap.put("Toppings", tokens[4]);
