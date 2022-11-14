@@ -58,4 +58,19 @@ public class Filesystem {
         Boolean currentOrder = new File(currentOrderDir).mkdir();
         Boolean finishedOrders = new File(finishedOrdersDir).mkdir();
     }
+
+    public String[] checkLogin(String str) throws IOException{
+
+        String[] logins = new String[];
+        BufferedReader reader = new BufferedReader(new FileReader(currentOrderDir + "/" + "output.txt"));
+        String check = reader.readLine();
+        reader.close();
+
+        String delims = ",";
+        String[] tokens = check.split(delims);
+        // populate logins
+        logins = tokens;
+
+        return login;
+    }
 }
