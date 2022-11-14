@@ -1,15 +1,22 @@
 package com.example.sundevilpizza;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.stage.Stage;
 
 public class CustomerController {
+
+	private Stage stage;
+	private Scene scene;
 
 	@FXML
 	private RadioButton rbPepperoni;
@@ -28,34 +35,73 @@ public class CustomerController {
 	@FXML
 	private Button btnOrder;
 
+	private int orderID;
+	private String customerID;
 	private double orderTotal;
+	private String pizzaType;
+	private String pizzaToppings;
 
 	@FXML
 	public void calculateTotal() {
 		double price = 0.0;
+		StringBuilder sb = new StringBuilder();
 
 		// Pizza Type
 		if (rbCheese.isSelected()) {
+			pizzaType = "Cheese";
 			price = 10.00;
 		} else if (rbPepperoni.isSelected()) {
+			pizzaType = "Pepperoni";
 			price = 12.00;
 		} else if (rbVeggie.isSelected()) {
+			pizzaType = "Veggie";
 			price = 15.00;
 		}
 
 		// Pizza Toppings
-		if (cbExtraCheese.isSelected()) { price += 1.50; }
-		if (cbBacon.isSelected()) { price += 1.50; }
-		if (cbMushroom.isSelected()) { price += 1.50; }
+		if (cbExtraCheese.isSelected()) {
+			sb.append("+ExtraCheese");
+			price += 1.50;
+		}
+		if (cbBacon.isSelected()) {
+			sb.append("+Bacon");
+			price += 1.50; }
+		if (cbMushroom.isSelected()) {
+			sb.append("+Mushroom");
+			price += 1.50;
+		}
 
 		lblTotal.setText("$" + String.format("%.2f", price));
 		orderTotal = price;
+		pizzaToppings = String.valueOf(sb);
 	}
 
 	@FXML
-	private void handleOrderButton(ActionEvent event) {
+	private void onOrderButtonClick(ActionEvent event) throws IOException {
+		// store order into string
+		orderID = 1;
+		customerID = "\n";
+		pizzaType = "";
+		pizzaToppings = "";
 		calculateTotal();
+		String orderIDStr = Integer.toString(orderID);
+		String order = "";
+		order = orderID + "," + customerID + "," + orderTotal + "," + pizzaType + "," + pizzaToppings;
+
+		// write order to file
+		Filesystem filesystem = new Filesystem();
+		filesystem.writeToFile(order);
 	}
 
+	public void onLogoutButtonClick(ActionEvent event) throws IOException {
+		loadScene(event, "Login.fxml");
+	}
 
+	public void loadScene(ActionEvent event, String sceneFile) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource(sceneFile));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 }
