@@ -15,14 +15,14 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sundevilpizza.SceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sundevilpizza.CustomerController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="408.0" layoutX="-1.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5f56" height="70.0" layoutY="332.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5f56" height="70.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <VBox layoutX="18.0" layoutY="125.0" prefHeight="168.0" prefWidth="89.0">
          <children>
-            <RadioButton mnemonicParsing="false" prefHeight="48.0" prefWidth="89.0" text="Pepperoni">
+            <RadioButton fx:id="rbPepperoni" mnemonicParsing="false" prefHeight="48.0" prefWidth="89.0" text="Pepperoni">
                <toggleGroup>
                   <ToggleGroup fx:id="pizzaType" />
                </toggleGroup>
@@ -30,28 +30,28 @@
                   <ColorAdjust />
                </effect>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" prefHeight="51.0" prefWidth="89.0" text="Veggie" toggleGroup="$pizzaType">
+            <RadioButton fx:id="rbVeggie" mnemonicParsing="false" prefHeight="51.0" prefWidth="89.0" text="Veggie" toggleGroup="$pizzaType">
                <effect>
                   <ColorAdjust />
                </effect></RadioButton>
-            <RadioButton mnemonicParsing="false" prefHeight="53.0" prefWidth="89.0" text="Cheese" toggleGroup="$pizzaType">
+            <RadioButton fx:id="rbCheese" mnemonicParsing="false" prefHeight="53.0" prefWidth="89.0" text="Cheese" toggleGroup="$pizzaType">
                <effect>
                   <ColorAdjust />
                </effect></RadioButton>
          </children>
       </VBox>
-      <CheckBox layoutX="233.0" layoutY="142.0" mnemonicParsing="false" text="Extra Cheese">
+      <CheckBox fx:id="cbExtraCheese" layoutX="233.0" layoutY="142.0" mnemonicParsing="false" text="Extra Cheese">
          <effect>
             <ColorAdjust />
          </effect>
       </CheckBox>
-      <CheckBox layoutX="233.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Bacon">
+      <CheckBox fx:id="cbBacon" layoutX="233.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Bacon">
          <effect>
             <ColorAdjust />
          </effect>
       </CheckBox>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f800" height="57.0" layoutX="8.0" layoutY="340.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
-      <CheckBox layoutX="233.0" layoutY="244.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Mushroom">
+      <CheckBox fx:id="cbMushroom" layoutX="233.0" layoutY="244.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Mushroom">
          <effect>
             <ColorAdjust />
          </effect>
@@ -67,12 +67,12 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f800" height="57.0" layoutX="473.0" layoutY="340.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
-      <Button layoutX="13.0" layoutY="346.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="45.0" prefWidth="105.0" text="Logout">
+      <Button layoutX="13.0" layoutY="346.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Logout">
          <font>
             <Font name="Lato Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="479.0" layoutY="346.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Submit ">
+      <Button layoutX="479.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleOrderButton" prefHeight="45.0" prefWidth="105.0" text="Order">
          <font>
             <Font name="Lato Bold" size="20.0" />
          </font>
@@ -131,5 +131,6 @@
             <Image url="@ASU-logo.png" />
          </image>
       </ImageView>
+      <Label fx:id="lblTotal" layoutX="443.0" layoutY="139.0" prefHeight="17.0" prefWidth="116.0" />
    </children>
 </AnchorPane>

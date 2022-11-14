@@ -41,10 +41,11 @@ public class SceneController {
 
             
         } else if (tfLoginPrompt.getText().equals("customer")) {
-			Filesystem file = new Filesystem();
+			Filesystem filesystem = new Filesystem();
+			filesystem.generateFolders();
 			String order = "001,John,25.15,Pepperoni,Mushroom";
-			file.writeToFile(order);
-			file.readFromFile("output.txt");
+			filesystem.writeToFile(order);
+			filesystem.readFromFile("output.txt");
         	// use filesystem to read from valid ASURITE ids
         	loadScene(event, "Customer.fxml");
         }  else if (tfLoginPrompt.getText().equals("agent")) {

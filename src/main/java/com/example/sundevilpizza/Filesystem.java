@@ -6,9 +6,11 @@ import java.util.Map;
 
 public class Filesystem {
 
+    private final String ordersDir = System.getProperty("user.dir") + "/data/orders/";
     private final String upcomingOrdersDir = System.getProperty("user.dir") + "/data/orders/upcomingOrders/";
-    private final String currentOrderDir = System.getProperty("user.dir") + "/data/orders/currentOrder/";
+    private final String currentOrderDir = System.getProperty("user.dir") + "/data/orders/currentOrder";
     private final String finishedOrdersDir = System.getProperty("user.dir") + "/data/orders/finishedOrders/";
+
     // takes in a formatted string of order data and writes to a file
     public void writeToFile(String str) throws IOException {
 
@@ -17,7 +19,7 @@ public class Filesystem {
         writer.close();
     }
 
-    // takes in a file path and returns an array of order data
+    // takes in a file path and returns a hashmap of order data
     public HashMap<String, String> readFromFile(String str) throws IOException {
 
         // hashmap to return
@@ -48,5 +50,12 @@ public class Filesystem {
         File[] listOfFiles = folder.listFiles();
         assert listOfFiles != null;
         return listOfFiles[listOfFiles.length-1];
+    }
+
+    public void generateFolders() {
+        Boolean orders = new File(ordersDir).mkdir();
+        Boolean upcomingOrders = new File(upcomingOrdersDir).mkdir();
+        Boolean currentOrder = new File(currentOrderDir).mkdir();
+        Boolean finishedOrders = new File(finishedOrdersDir).mkdir();
     }
 }
