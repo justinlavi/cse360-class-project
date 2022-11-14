@@ -66,8 +66,8 @@ public class Filesystem {
         reader.close();
 
         String delims = ",";
-        String[] tokens = check.split(delims);
+        String[] logins = check.split(delims);
 
-        return tokens;
+        return logins;
     }
 }
