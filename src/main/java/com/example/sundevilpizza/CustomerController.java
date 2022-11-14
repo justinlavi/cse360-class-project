@@ -91,7 +91,7 @@ public class CustomerController {
 		try {
 			HashMap<String, String> orderStatus = status.getOrderDetails();
 			lblOrderID.setText(orderStatus.get("OrderID"));
-			lblOrderStatus.setText(orderStatus.get("Status"));
+			lblOrderStatus.setText(OrderStatusController.getOrderStatus());
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -116,6 +116,7 @@ public class CustomerController {
 		// write order to file
 		Filesystem filesystem = new Filesystem();
 		filesystem.writeToFile(order);
+		OrderStatusController.setOrderStatus("Submitted");
 	}
 
 	public void onLogoutButtonClick(ActionEvent event) throws IOException {

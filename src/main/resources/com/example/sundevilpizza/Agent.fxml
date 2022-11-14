@@ -48,16 +48,9 @@
             <Font name="Lato Bold" size="20.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a42714" height="247.0" layoutX="20.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" width="266.0" />
-      <TextArea editable="false" layoutX="27.0" layoutY="85.0" prefHeight="234.0" prefWidth="253.0" text="&#10;" />
-      <Label layoutX="73.0" layoutY="62.0" prefHeight="87.0" prefWidth="215.0" text="Next Order" underline="true">
-         <font>
-            <Font name="Lato Bold" size="30.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a42714" height="247.0" layoutX="313.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" width="266.0" />
-      <TextArea editable="false" layoutX="320.0" layoutY="85.0" prefHeight="234.0" prefWidth="253.0" />
-      <Label layoutX="349.0" layoutY="62.0" prefHeight="87.0" prefWidth="215.0" text="Current Order" underline="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a42714" height="247.0" layoutX="164.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" width="266.0" />
+      <TextArea editable="false" layoutX="171.0" layoutY="83.0" prefHeight="234.0" prefWidth="253.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="58.0" prefHeight="87.0" prefWidth="215.0" text="Current Order" underline="true">
          <font>
             <Font name="Lato Bold" size="30.0" />
          </font>
@@ -72,5 +65,7 @@
       <Label layoutX="261.0" layoutY="354.0" prefHeight="25.0" prefWidth="36.0" text="Status:" />
       <Label fx:id="lblOrderID" layoutX="206.0" layoutY="354.0" prefHeight="25.0" prefWidth="45.0" />
       <Label fx:id="lblOrderStatus" layoutX="303.0" layoutY="354.0" prefHeight="25.0" prefWidth="105.0" />
+      <Label layoutX="184.0" layoutY="137.0" text="Order Number" />
+      <Label fx:id="lblOrderID" layoutX="237.0" layoutY="137.0" prefHeight="17.0" prefWidth="63.0" />
    </children>
 </AnchorPane>

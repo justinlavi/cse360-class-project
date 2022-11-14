@@ -30,7 +30,7 @@ public class AgentController {
         try {
             HashMap<String, String> orderStatus = status.getOrderDetails();
             lblOrderID.setText(orderStatus.get("OrderID"));
-            lblOrderStatus.setText(status.getOrderStatus());
+            lblOrderStatus.setText(OrderStatusController.getOrderStatus());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -39,14 +39,7 @@ public class AgentController {
     @FXML
     private void onAcceptedButtonClick(ActionEvent event) throws IOException {
 
-        OrderStatusController status = new OrderStatusController();
-        try {
-            HashMap<String, String> orderStatus = status.getOrderDetails();
-            orderStatus.replace("Status", "Accepted");
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        OrderStatusController.setOrderStatus("Accepted");
     }
 
     @FXML

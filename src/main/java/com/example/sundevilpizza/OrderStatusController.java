@@ -14,7 +14,7 @@ public class OrderStatusController {
     private Label lblOrderStatus;
 
     HashMap<String, String> currentOrder;
-    private String orderStatus;
+    private static String orderStatus;
 
     public HashMap<String, String> getOrderDetails() throws IOException {
         Filesystem filesystem = new Filesystem();
@@ -22,10 +22,10 @@ public class OrderStatusController {
         return currentOrder;
     }
 
-    public String getOrderStatus() {
+    public static String getOrderStatus() {
         return orderStatus;
     }
-    public void setOrderStatus(String str) {
+    public static void setOrderStatus(String str) {
         orderStatus = str;
     }
 
