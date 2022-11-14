@@ -54,5 +54,15 @@
             <Font size="20.0" />
          </font>
       </Button>
+      <Label layoutX="170.0" layoutY="353.0" prefHeight="25.0" prefWidth="45.0" text="OrderID:" />
+      <Label layoutX="278.0" layoutY="353.0" prefHeight="25.0" prefWidth="36.0" text="Status:" />
+      <Label fx:id="lblOrderID" layoutX="223.0" layoutY="353.0" prefHeight="25.0" prefWidth="45.0" />
+      <Label fx:id="lblOrderStatus" layoutX="320.0" layoutY="353.0" prefHeight="25.0" prefWidth="105.0" />
+      <ImageView fitHeight="53.0" fitWidth="45.0" layoutX="125.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@refreshIcon.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="125.0" layoutY="10.0" mnemonicParsing="false" opacity="0.0" prefHeight="48.0" prefWidth="45.0" />
    </children>
 </AnchorPane>
