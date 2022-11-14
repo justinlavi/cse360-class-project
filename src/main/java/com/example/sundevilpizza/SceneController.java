@@ -32,26 +32,31 @@ public class SceneController {
     private Label lblLoginStatus;
     @FXML
     private TextField tfLoginPrompt;
-    
-    public void onLoginButtonClick(ActionEvent event) throws IOException {
-        if (tfLoginPrompt.getText().isBlank()) {
-        	lblLoginStatus.setText("Login field is empty!");
-        	lblLoginStatus.setStyle(errorMessage);
-        	tfLoginPrompt.setStyle(errorStyle);
-        } else if (tfLoginPrompt.getText().equals("customer")) {
 
-        	// use filesystem to read from valid ASURITE ids
-        	loadScene(event, "Customer.fxml");
-        }  else if (tfLoginPrompt.getText().equals("agent")) {
-        	// what should the op agent's login be?
-        	loadScene(event, "Agent.fxml");
-        }  else if (tfLoginPrompt.getText().equals("chef")) {
-        	// what should the chef's login be?
-        	loadScene(event, "Chef.fxml");
-        } else {
-        	lblLoginStatus.setText("Invalid UserID");
-        	lblLoginStatus.setStyle(errorMessage);
-        }
+    public void onLoginButtonClick(ActionEvent event) throws IOException {
+
+		Filesystem.checkLogin();
+		for (int i = 0; i < Filesystem.logins.length; ++i)
+		{
+			if (tfLoginPrompt.getText().isBlank()) {
+				lblLoginStatus.setText("Login field is empty!");
+				lblLoginStatus.setStyle(errorMessage);
+				tfLoginPrompt.setStyle(errorStyle);
+			} else if (tfLoginPrompt.getText().equals(Filesystem.logins[i])) {
+				// use filesystem to read from valid ASURITE ids
+				loadScene(event, "Customer.fxml");
+			}  else if (tfLoginPrompt.getText().equals("agent")) {
+				// what should the op agent's login be?
+				loadScene(event, "Agent.fxml");
+			}  else if (tfLoginPrompt.getText().equals("chef")) {
+				// what should the chef's login be?
+				loadScene(event, "Chef.fxml");
+			} else {
+				lblLoginStatus.setText("Invalid UserID");
+				lblLoginStatus.setStyle(errorMessage);
+			}
+		}
+
 	}
     
     public void onLogoutButtonClick(ActionEvent event) throws IOException {

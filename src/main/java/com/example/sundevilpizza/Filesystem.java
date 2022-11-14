@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class Filesystem {
 
+    public final String loginsDir = System.getProperty("user.dir") + "/data/logins/logins.txt";
     public final String ordersDir = System.getProperty("user.dir") + "/data/orders/";
     public final String upcomingOrdersDir = System.getProperty("user.dir") + "/data/orders/upcomingOrders/";
     public final String currentOrderDir = System.getProperty("user.dir") + "/data/orders/currentOrder";
@@ -59,15 +60,14 @@ public class Filesystem {
         Boolean finishedOrders = new File(finishedOrdersDir).mkdir();
     }
 
-    public String[] checkLogin(String str) throws IOException{
+    public static String[] logins;
+    public static void checkLogin() throws IOException{
 
-        BufferedReader reader = new BufferedReader(new FileReader(currentOrderDir + "/" + "output.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/data/logins/logins.txt"));
         String check = reader.readLine();
         reader.close();
 
         String delims = ",";
-        String[] logins = check.split(delims);
-
-        return logins;
+        logins = check.split(delims);
     }
 }

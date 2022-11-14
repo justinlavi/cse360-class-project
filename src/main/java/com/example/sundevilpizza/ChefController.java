@@ -11,6 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class ChefController {
     private Stage stage;
@@ -32,15 +33,28 @@ public class ChefController {
     private Label lblOrderStatus;
 
     @FXML
+    private void onRefreshButtonClick(ActionEvent event) throws IOException {
+
+        OrderStatusController status = new OrderStatusController();
+        try {
+            HashMap<String, String> orderStatus = status.getOrderDetails();
+            lblOrderID.setText(orderStatus.get("OrderID"));
+            lblOrderStatus.setText(OrderStatusController.getOrderStatus());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
     private void onCookingButtonClick(ActionEvent event) {
         OrderStatusController.setOrderStatus("Cooking");
     }
 
     @FXML
-    private void OnReadyButtonClick(ActionEvent event) {
+    private void onReadyButtonClick(ActionEvent event) {
         OrderStatusController.setOrderStatus("Ready");
     }
 
+    @FXML
     public void onLogoutButtonClick(ActionEvent event) throws IOException {
         loadScene(event, "Login.fxml");
     }
@@ -52,6 +66,4 @@ public class ChefController {
         stage.setScene(scene);
         stage.show();
     }
-
-
-    }
+}
