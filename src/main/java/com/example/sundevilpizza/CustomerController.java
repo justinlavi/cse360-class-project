@@ -86,7 +86,10 @@ public class CustomerController {
 
 	@FXML
 	private void onRefreshButtonClick(ActionEvent event) throws IOException {
+		refreshStatus();
+	}
 
+	public void refreshStatus() throws IOException {
 		OrderStatusController status = new OrderStatusController();
 		try {
 			HashMap<String, String> orderStatus = status.getOrderDetails();
@@ -117,6 +120,8 @@ public class CustomerController {
 		Filesystem filesystem = new Filesystem();
 		filesystem.writeToFile(order);
 		OrderStatusController.setOrderStatus("Submitted");
+
+		refreshStatus();
 	}
 
 	public void onLogoutButtonClick(ActionEvent event) throws IOException {

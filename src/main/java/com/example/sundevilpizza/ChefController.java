@@ -34,24 +34,36 @@ public class ChefController {
 
     @FXML
     private void onRefreshButtonClick(ActionEvent event) throws IOException {
+        refreshStatus();
+    }
+
+    public void refreshStatus() throws IOException {
 
         OrderStatusController status = new OrderStatusController();
         try {
             HashMap<String, String> orderStatus = status.getOrderDetails();
+            lblOrderNumber.setText(orderStatus.get("OrderID"));
+            lblAccountNumber.setText(orderStatus.get("Account"));
+            lblOrderTotal.setText("$" + orderStatus.get("Total"));
+            lblPizzaType.setText(orderStatus.get("Type"));
+            lblPizzaToppings.setText(orderStatus.get("Toppings"));
             lblOrderID.setText(orderStatus.get("OrderID"));
             lblOrderStatus.setText(OrderStatusController.getOrderStatus());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
     @FXML
-    private void onCookingButtonClick(ActionEvent event) {
+    private void onCookingButtonClick(ActionEvent event) throws IOException {
         OrderStatusController.setOrderStatus("Cooking");
+        refreshStatus();
     }
 
     @FXML
-    private void onReadyButtonClick(ActionEvent event) {
+    private void onReadyButtonClick(ActionEvent event) throws IOException {
         OrderStatusController.setOrderStatus("Ready");
+        refreshStatus();
     }
 
     @FXML

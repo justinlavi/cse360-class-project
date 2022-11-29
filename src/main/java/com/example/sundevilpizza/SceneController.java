@@ -14,6 +14,7 @@ import javafx.scene.Node;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class SceneController {
 
@@ -27,11 +28,29 @@ public class SceneController {
     String errorMessage = String.format("-fx-text-fill: RED;");
     String errorStyle = String.format("-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 5;");
     String successStyle = String.format("-fx-border-color: #A9A9A9; -fx-border-width: 2; -fx-border-radius: 5;");
-    
+
+	@FXML
+	private Label lblOrderID;
+	@FXML
+	private Label lblOrderStatus;
+
     @FXML
     private Label lblLoginStatus;
     @FXML
     private TextField tfLoginPrompt;
+
+	@FXML
+	private void onRefreshButtonClick(ActionEvent event) throws IOException {
+
+		OrderStatusController status = new OrderStatusController();
+		try {
+			HashMap<String, String> orderStatus = status.getOrderDetails();
+			lblOrderID.setText(orderStatus.get("OrderID"));
+			lblOrderStatus.setText(OrderStatusController.getOrderStatus());
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
     public void onLoginButtonClick(ActionEvent event) throws IOException {
 

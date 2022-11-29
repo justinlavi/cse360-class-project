@@ -35,8 +35,13 @@ public class AgentController {
     @FXML
     private Label lblOrderStatus;
 
+
     @FXML
     private void onRefreshButtonClick(ActionEvent event) throws IOException {
+        refreshStatus();
+    }
+
+    public void refreshStatus() throws IOException {
 
         OrderStatusController status = new OrderStatusController();
         try {
@@ -57,6 +62,7 @@ public class AgentController {
     private void onAcceptedButtonClick(ActionEvent event) throws IOException {
 
         OrderStatusController.setOrderStatus("Accepted");
+        refreshStatus();
     }
 
     @FXML

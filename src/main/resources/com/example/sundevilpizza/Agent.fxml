@@ -64,7 +64,10 @@
       <Label layoutX="153.0" layoutY="354.0" prefHeight="25.0" prefWidth="45.0" text="OrderID:" />
       <Label layoutX="261.0" layoutY="354.0" prefHeight="25.0" prefWidth="36.0" text="Status:" />
       <Label fx:id="lblOrderID" layoutX="206.0" layoutY="354.0" prefHeight="25.0" prefWidth="45.0" />
-      <Label fx:id="lblOrderStatus" layoutX="303.0" layoutY="354.0" prefHeight="25.0" prefWidth="105.0" />
+      <Label fx:id="lblOrderStatus" layoutX="303.0" layoutY="354.0" prefHeight="25.0" prefWidth="105.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <Label layoutX="184.0" layoutY="137.0" text="Order Number:" />
       <Label fx:id="lblOrderNumber" layoutX="272.0" layoutY="137.0" prefHeight="17.0" prefWidth="91.0" />
       <Label layoutX="184.0" layoutY="167.0" text="Account:" />
